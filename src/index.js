@@ -1,13 +1,31 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import reportWebVitals from "./reportWebVitals";
+import Impressum from "./components/Impressum";
+import Contact from "./components/Contact";
+import About from "./components/About";
+import FAQ from "./components/FAQ";
+import PokemonList from "./components/PokemonList";
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Routes>
+        <Route path="/" element={<App></App>}></Route>
+        <Route path="/contact" element={<Contact></Contact>}></Route>
+        <Route path="/impressum" element={<Impressum></Impressum>}></Route>
+        <Route path="/about" element={<About></About>}></Route>
+        <Route path="/FAQ" element={<FAQ></FAQ>}></Route>
+        <Route
+          path="/pokemonlist"
+          element={<PokemonList></PokemonList>}
+        ></Route>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );
 
